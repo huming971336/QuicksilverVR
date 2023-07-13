@@ -165,7 +165,7 @@ public class SharedAnchorControlPanel : MonoBehaviour
 
     private void SpawnCube()
     {
-        var networkedCube = PhotonPun.PhotonNetwork.Instantiate(cubePrefab.name, spawnPoint.position, spawnPoint.rotation);
+        var networkedCube = PhotonPun.PhotonNetwork.Instantiate(cubePrefab.name, cubePrefab.transform.position, cubePrefab.transform.rotation);
         var photonGrabbable = networkedCube.GetComponent<PhotonGrabbableObject>();
         photonGrabbable.TransferOwnershipToLocalPlayer();
     }
