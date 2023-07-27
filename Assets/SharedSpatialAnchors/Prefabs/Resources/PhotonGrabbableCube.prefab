@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 847531836235365747}
   m_Layer: 0
   m_Name: PhotonGrabbableCube
-  m_TagString: Untagged
+  m_TagString: CubeAnchor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
