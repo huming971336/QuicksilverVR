@@ -35,6 +35,11 @@ using PhotonRealtime = Photon.Realtime;
 /// </summary>
 public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
 {
+    
+    
+    //Our variables
+    private int roomCount;
+    
     [SerializeField] private SharedAnchorControlPanel controlPanel;
 
     [SerializeField] private bool usePhotonMatchmaking = true;
@@ -90,6 +95,9 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
             { 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff };
         _fakeUuid = new Guid(fakeBytes);
         PackUuid(_fakeUuid, _fakePacket, ref offset);
+        
+        //initialize count
+        roomCount = 0;
     }
 
     #endregion
@@ -283,23 +291,25 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
         if (PhotonPun.PhotonNetwork.IsConnected)
         {
             if (PhotonPun.PhotonNetwork.NickName != "")
-                CreateNewRoomForLobby(PhotonPun.PhotonNetwork.NickName);
+                CreateNewRoomForLobby(PhotonPun.PhotonNetwork.NickName + roomCount);
             else
             {
                 UnityEngine.Random.InitState((int)(Time.time * 10000));
-                string testName = "TestUser" + UnityEngine.Random.Range(0, 1000);
+                string testName = "TestUser" + UnityEngine.Random.Range(0, 1000) + roomCount;
                 PhotonPun.PhotonNetwork.NickName = testName;
                 CreateNewRoomForLobby(testName);
             }
 
             if (controlPanel)
                 controlPanel.DisplayMenuPanel();
+            
         }
         else
         {
             SampleController.Instance.Log("Attempting to reconnect and rejoin a room");
             PhotonPun.PhotonNetwork.ConnectUsingSettings();
         }
+        roomCount++;
     }
 
     public void CreateNewRoomForLobby(string roomToCreate)
@@ -314,7 +324,7 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
         SampleController.Instance.Log("JoinRoomFromLobby: attempting to create room: " + roomToCreate);
 
         var roomOptions = new PhotonRealtime.RoomOptions
-            { IsVisible = true, MaxPlayers = 16, EmptyRoomTtl = 0, PlayerTtl = 300000 };
+            { IsVisible = true, MaxPlayers = 16, EmptyRoomTtl = 0, PlayerTtl = 0};
 
         PhotonPun.PhotonNetwork.JoinOrCreateRoom(roomToCreate, roomOptions, PhotonRealtime.TypedLobby.Default);
     }
@@ -363,7 +373,7 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
         SampleController.Instance.Log($"{nameof(JoinRoomFromLobby)}: Room Name: " + roomToJoin);
 
         var roomOptions = new PhotonRealtime.RoomOptions
-            { IsVisible = true, MaxPlayers = 16, EmptyRoomTtl = 0, PlayerTtl = 300000 };
+            { IsVisible = true, MaxPlayers = 16, EmptyRoomTtl = 0, PlayerTtl = 0 };
 
         PhotonPun.PhotonNetwork.JoinOrCreateRoom(roomToJoin, roomOptions, PhotonRealtime.TypedLobby.Default);
     }
