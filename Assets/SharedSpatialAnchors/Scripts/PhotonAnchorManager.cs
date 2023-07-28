@@ -35,11 +35,9 @@ using PhotonRealtime = Photon.Realtime;
 /// </summary>
 public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
 {
-    [SerializeField]
-    private SharedAnchorControlPanel controlPanel;
+    [SerializeField] private SharedAnchorControlPanel controlPanel;
 
-    [SerializeField]
-    private bool usePhotonMatchmaking = true;
+    [SerializeField] private bool usePhotonMatchmaking = true;
 
     public static PhotonAnchorManager Instance;
 
@@ -88,7 +86,8 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
         _fakePacket[0] = PacketFormat;
 
         var offset = 1;
-        var fakeBytes = new byte[] { 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff };
+        var fakeBytes = new byte[]
+            { 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff };
         _fakeUuid = new Guid(fakeBytes);
         PackUuid(_fakeUuid, _fakePacket, ref offset);
     }
@@ -115,10 +114,12 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
         _oculusUsername = msg.GetUser().OculusID;
         _oculusUserId = msg.GetUser().ID;
 
-        SampleController.Instance.Log("GetLoggedInUserCallback: oculus user name: " + _oculusUsername + " oculus id: " + _oculusUserId);
+        SampleController.Instance.Log("GetLoggedInUserCallback: oculus user name: " + _oculusUsername + " oculus id: " +
+                                      _oculusUserId);
 
         if (_oculusUserId == 0)
-            SampleController.Instance.Log("You are not authenticated to use this app. Shared Spatial Anchors will not work.");
+            SampleController.Instance.Log(
+                "You are not authenticated to use this app. Shared Spatial Anchors will not work.");
 
         PhotonPun.PhotonNetwork.LocalPlayer.NickName = _oculusUsername;
     }
@@ -129,12 +130,14 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
         {
             if (PhotonPun.PhotonNetwork.IsConnected)
             {
-                SampleController.Instance.Log("Application Un-paused: Attempting to reconnect and rejoin a Photon room");
+                SampleController.Instance.Log(
+                    "Application Un-paused: Attempting to reconnect and rejoin a Photon room");
                 PhotonPun.PhotonNetwork.ReconnectAndRejoin();
             }
             else
             {
-                SampleController.Instance.Log("Application Un-paused: Connecting to a Photon server. Please join or create a room.");
+                SampleController.Instance.Log(
+                    "Application Un-paused: Connecting to a Photon server. Please join or create a room.");
                 PhotonPun.PhotonNetwork.ConnectUsingSettings();
             }
         }
@@ -144,7 +147,8 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        SampleController.Instance.Log("Photon::OnConnectedToMaster: successfully connected to photon: " + PhotonPun.PhotonNetwork.CloudRegion);
+        SampleController.Instance.Log("Photon::OnConnectedToMaster: successfully connected to photon: " +
+                                      PhotonPun.PhotonNetwork.CloudRegion);
 
         if (controlPanel)
             controlPanel.ToggleRoomButtons(true);
@@ -192,7 +196,7 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
         {
             controlPanel.DisplayMenuPanel();
         }
-
+#if UNITY_ANDROID
         if (SampleController.Instance.automaticCoLocation)
         {
             Photon.Pun.PhotonNetwork.Instantiate("PassthroughAvatarPhoton", Vector3.zero, Quaternion.identity);
@@ -202,7 +206,7 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
                 SampleController.Instance.PlaceAnchorAtRoot();
             }
         }
-
+#endif
         GameObject sceneCaptureController = GameObject.Find("SceneCaptureController");
         if (sceneCaptureController)
         {
@@ -216,7 +220,7 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
             }
         }
     }
-
+#if UNITY_ANDROID
     public override void OnPlayerEnteredRoom(PhotonRealtime.Player newPlayer)
     {
         SampleController.Instance.Log("Photon::OnPlayerEnteredRoom: new player joined room: " + newPlayer.NickName);
@@ -232,6 +236,7 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
             Invoke(nameof(WaitToReshareAnchor), 1);
         }
     }
+#endif
 
     private void WaitToSendAnchor()
     {
@@ -255,7 +260,8 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
 
     public override void OnCreatedRoom()
     {
-        SampleController.Instance.Log("Photon::OnCreatedRoom: created room: " + PhotonPun.PhotonNetwork.CurrentRoom.Name);
+        SampleController.Instance.Log(
+            "Photon::OnCreatedRoom: created room: " + PhotonPun.PhotonNetwork.CurrentRoom.Name);
     }
 
     public override void OnRoomListUpdate(List<PhotonRealtime.RoomInfo> roomList)
@@ -285,6 +291,7 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
                 PhotonPun.PhotonNetwork.NickName = testName;
                 CreateNewRoomForLobby(testName);
             }
+
             if (controlPanel)
                 controlPanel.DisplayMenuPanel();
         }
@@ -306,7 +313,8 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
 
         SampleController.Instance.Log("JoinRoomFromLobby: attempting to create room: " + roomToCreate);
 
-        var roomOptions = new PhotonRealtime.RoomOptions { IsVisible = true, MaxPlayers = 16, EmptyRoomTtl = 0, PlayerTtl = 300000 };
+        var roomOptions = new PhotonRealtime.RoomOptions
+            { IsVisible = true, MaxPlayers = 16, EmptyRoomTtl = 0, PlayerTtl = 300000 };
 
         PhotonPun.PhotonNetwork.JoinOrCreateRoom(roomToCreate, roomOptions, PhotonRealtime.TypedLobby.Default);
     }
@@ -322,6 +330,7 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
         }
 
         JoinRoomFromLobby(roomName.text);
+        //Change this for users
         if (controlPanel)
             controlPanel.DisplayMenuPanel();
     }
@@ -353,7 +362,8 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
 
         SampleController.Instance.Log($"{nameof(JoinRoomFromLobby)}: Room Name: " + roomToJoin);
 
-        var roomOptions = new PhotonRealtime.RoomOptions { IsVisible = true, MaxPlayers = 16, EmptyRoomTtl = 0, PlayerTtl = 300000 };
+        var roomOptions = new PhotonRealtime.RoomOptions
+            { IsVisible = true, MaxPlayers = 16, EmptyRoomTtl = 0, PlayerTtl = 300000 };
 
         PhotonPun.PhotonNetwork.JoinOrCreateRoom(roomToJoin, roomOptions, PhotonRealtime.TypedLobby.Default);
     }
@@ -362,6 +372,8 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
 
     #region [Send and read room data]
 
+#if UNITY_ANDROID
+    
     public void PublishAnchorUuids(Guid[] uuids, uint numUuids, bool isBuffered)
     {
         SampleController.Instance.Log("PublishAnchorUuids: numUuids: " + numUuids);
@@ -396,7 +408,8 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
 
         if (isInvalidPacketSize)
         {
-            SampleController.Instance.Log($"{nameof(CheckForAnchorsShared)}: invalid packet size: {uuidsPacket.Length} should be 1+{UuidSize}*numUuidsShared");
+            SampleController.Instance.Log(
+                $"{nameof(CheckForAnchorsShared)}: invalid packet size: {uuidsPacket.Length} should be 1+{UuidSize}*numUuidsShared");
             return;
         }
 
@@ -404,7 +417,8 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
 
         if (isInvalidPacketType)
         {
-            SampleController.Instance.Log(nameof(CheckForAnchorsShared) + " : invalid packet type: " + uuidsPacket.Length);
+            SampleController.Instance.Log(nameof(CheckForAnchorsShared) + " : invalid packet type: " +
+                                          uuidsPacket.Length);
             return;
         }
 
@@ -437,7 +451,8 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
 
             if (shouldExit)
             {
-                SampleController.Instance.Log(nameof(CheckForAnchorsShared) + " : received the fakeUuid/noop... exiting");
+                SampleController.Instance.Log(
+                    nameof(CheckForAnchorsShared) + " : received the fakeUuid/noop... exiting");
                 return;
             }
 
@@ -447,6 +462,7 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
         Debug.Log(nameof(CheckForAnchorsShared) + " : set of uuids shared: " + uuids.Count);
         SharedAnchorLoader.Instance.LoadAnchorsFromRemote(uuids);
     }
+
 
     public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
     {
@@ -465,6 +481,7 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
             DeserializeToScene((byte[])data);
         }
     }
+#endif
 
     private void LoadRoomFromProperties()
     {
@@ -477,7 +494,8 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
         }
 
         object data;
-        if (Photon.Pun.PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue(SceneApiSceneCaptureStrategy.RoomDataKey, out data))
+        if (Photon.Pun.PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue(SceneApiSceneCaptureStrategy.RoomDataKey,
+                out data))
         {
             DeserializeToScene((byte[])data);
         }
@@ -496,13 +514,15 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
         if (worldGenerationController)
             worldGenerationController.GetComponent<WorldGenerationController>().GenerateWorld(deserializedScene);
     }
+
     #endregion
 
     #region [User list state handling]
 
     public static HashSet<ulong> GetUserList()
     {
-        if (PhotonPun.PhotonNetwork.CurrentRoom == null || !PhotonPun.PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey(UserIdsKey))
+        if (PhotonPun.PhotonNetwork.CurrentRoom == null ||
+            !PhotonPun.PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey(UserIdsKey))
         {
             return new HashSet<ulong>();
         }

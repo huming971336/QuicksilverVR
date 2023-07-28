@@ -33,29 +33,21 @@ public class SampleController : MonoBehaviour
     public bool automaticCoLocation = false;
     public bool cachedAnchorSample = false;
 
-    [HideInInspector]
-    public SharedAnchor colocationAnchor;
+    [HideInInspector] public SharedAnchor colocationAnchor;
 
-    [HideInInspector]
-    public CachedSharedAnchor colocationCachedAnchor;
+    [HideInInspector] public CachedSharedAnchor colocationCachedAnchor;
 
-    [SerializeField]
-    private Transform rightHandAnchor;
+    [SerializeField] private Transform rightHandAnchor;
 
-    [SerializeField]
-    private GameObject placementPreview;
+    [SerializeField] private GameObject placementPreview;
 
-    [SerializeField]
-    private Transform placementRoot;
+    [SerializeField] private Transform placementRoot;
 
-    [SerializeField]
-    public TextMeshProUGUI logText;
+    [SerializeField] public TextMeshProUGUI logText;
 
-    [SerializeField]
-    public TextMeshProUGUI pageText;
+    [SerializeField] public TextMeshProUGUI pageText;
 
-    [SerializeField]
-    public OVRSpatialAnchor anchorPrefab;
+    [SerializeField] public OVRSpatialAnchor anchorPrefab;
 
     public static SampleController Instance;
     private bool _isPlacementMode;
@@ -87,8 +79,10 @@ public class SampleController : MonoBehaviour
 
     private void Update()
     {
-        var rayInteractorHoveringUI = _rayInteractor == null || (_rayInteractor != null && _rayInteractor.Candidate == null);
-        var shouldPlaceNewAnchor = _isPlacementMode && OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) && rayInteractorHoveringUI;
+        var rayInteractorHoveringUI =
+            _rayInteractor == null || (_rayInteractor != null && _rayInteractor.Candidate == null);
+        var shouldPlaceNewAnchor = _isPlacementMode && OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) &&
+                                   rayInteractorHoveringUI;
 
         if (shouldPlaceNewAnchor)
         {
@@ -104,7 +98,6 @@ public class SampleController : MonoBehaviour
 
     public void EndPlacementMode()
     {
-
         _isPlacementMode = false;
         placementPreview.SetActive(false);
     }
@@ -113,7 +106,8 @@ public class SampleController : MonoBehaviour
     {
         Log("PlaceAnchorAtRoot: root: " + placementRoot.ToOVRPose().ToPosef());
 
-        colocationAnchor = Instantiate(anchorPrefab, placementRoot.position, placementRoot.rotation).GetComponent<SharedAnchor>();
+        colocationAnchor = Instantiate(anchorPrefab, placementRoot.position, placementRoot.rotation)
+            .GetComponent<SharedAnchor>();
 
         if (automaticCoLocation)
             StartCoroutine(WaitingForAnchorLocalization());
@@ -153,6 +147,8 @@ public class SampleController : MonoBehaviour
     {
         Log(message, true);
     }
+#if UNITY_ANDROID
+
 
     public void AddSharedAnchorToLocalPlayer(SharedAnchor anchor)
     {
@@ -163,4 +159,5 @@ public class SampleController : MonoBehaviour
     {
         return sharedanchorList;
     }
+#endif
 }
