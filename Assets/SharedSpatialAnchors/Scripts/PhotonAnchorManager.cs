@@ -37,6 +37,7 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
 {
     
     
+    
     //Our variables
     private int roomCount;
     
@@ -382,7 +383,7 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
 
     #region [Send and read room data]
 
-#if UNITY_ANDROID
+
     
     public void PublishAnchorUuids(Guid[] uuids, uint numUuids, bool isBuffered)
     {
@@ -491,7 +492,7 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
             DeserializeToScene((byte[])data);
         }
     }
-#endif
+
 
     private void LoadRoomFromProperties()
     {

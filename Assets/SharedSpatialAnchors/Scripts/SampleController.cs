@@ -147,7 +147,6 @@ public class SampleController : MonoBehaviour
     {
         Log(message, true);
     }
-#if UNITY_ANDROID
 
 
     public void AddSharedAnchorToLocalPlayer(SharedAnchor anchor)
@@ -159,5 +158,5 @@ public class SampleController : MonoBehaviour
     {
         return sharedanchorList;
     }
-#endif
+
 }
