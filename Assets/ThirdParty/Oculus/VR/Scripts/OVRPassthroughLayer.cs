@@ -356,6 +356,7 @@ public class OVRPassthroughLayer : MonoBehaviour
         colorMapEditorBrightness = brightness;
         colorMapEditorContrast = contrast;
         colorMapEditorSaturation = saturation;
+        
 
         UpdateColorMapFromControls();
     }

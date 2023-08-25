@@ -51,6 +51,18 @@ public class PassthroughStyler : MonoBehaviour
             grabOject.ReleasedObjectDelegate += Release;
             grabOject.CursorPositionDelegate += Cursor;
         }
+        GameObject ovrCameraRig = GameObject.Find("OVRCameraRig");
+        if (ovrCameraRig == null)
+        {
+            Debug.LogError("Scene does not contain an OVRCameraRig");
+            return;
+        }
+
+        _passthroughLayer = ovrCameraRig.GetComponent<OVRPassthroughLayer>();
+        if (_passthroughLayer == null)
+        {
+            Debug.LogError("OVRCameraRig does not contain an OVRPassthroughLayer component");
+        }
 
         _savedColor = new Color(1, 1, 1, 0);
         ShowFullMenu(false);
@@ -125,8 +137,17 @@ public class PassthroughStyler : MonoBehaviour
     {
         _savedBlend = newValue;
         _passthroughLayer.SetColorLut(_passthroughColorLut, _savedBlend);
-    }
+        
 
+    }
+    private float _savedPosterize = 0.0f;
+
+    public void OnPosterizeChange(float newValue)
+    {
+        _savedPosterize = newValue;
+        _passthroughLayer.colorMapEditorPosterize = _savedPosterize;
+    }
+   
     /// <summary>
     /// Called from editor
     /// </summary>
