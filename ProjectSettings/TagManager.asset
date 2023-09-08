@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - CubeAnchor
+  - scenes
   layers:
   - Default
   - TransparentFX

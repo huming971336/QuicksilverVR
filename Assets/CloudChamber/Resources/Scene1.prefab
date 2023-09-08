@@ -304,8 +304,8 @@ GameObject:
   - component: {fileID: 179451855262347607}
   - component: {fileID: 4004713849399057297}
   m_Layer: 0
-  m_Name: SceneOne 1
-  m_TagString: Untagged
+  m_Name: Scene1
+  m_TagString: scenes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

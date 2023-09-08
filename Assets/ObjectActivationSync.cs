@@ -1,19 +1,21 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using PhotonPun = Photon.Pun;
 using PhotonRealtime = Photon.Realtime;
 
 public class ObjectActivationSync : MonoBehaviour
 {
-    public GameObject scene;
+    [Tooltip("Tag of the Photon Network object to delete.")]
+    [SerializeField] private string objectTag = "scenes";
 
     private void Start()
     {
         // Set the GameObject to be active for the local player.
     }
 
-    public void SceneToSpawn()
+    public void ObjectToSpawn(GameObject obj)
     {
-        ActivateObject(scene);
+        ActivateObject(obj);
     }
 
     private void ActivateObject(GameObject Prefab)
@@ -37,4 +39,13 @@ public class ObjectActivationSync : MonoBehaviour
     //     // Set the active state of the GameObject based on the received value.
     //     scene.SetActive(isActive);
     // }
+
+    public void DeletePhotonObjectWithTag()
+    {
+        var objectsToDelete = GameObject.FindGameObjectsWithTag(objectTag);
+        foreach (var obj in objectsToDelete)
+        {
+            PhotonPun.PhotonNetwork.Destroy(obj);
+        }
+    }
 }
