@@ -8,7 +8,7 @@ public class ChangeSkybox : MonoBehaviourPunCallbacks
     [Tooltip("The skybox material to use for the server and clients.")]
     public Material skyboxMaterial;
 
-    private void Start()
+    public void ChangeSceneSkybox()
     {
         if (PhotonNetwork.IsMasterClient)
         {

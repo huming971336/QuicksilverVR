@@ -3939,7 +3939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08393c4fa79cbc24992bbfb6d963f596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skyboxMaterial: {fileID: 0}
+  skyboxMaterial: {fileID: 2100000, guid: 2b5e2dcd94260594591020ace15752fb, type: 2}
 --- !u!1 &1458261624
 GameObject:
   m_ObjectHideFlags: 0
