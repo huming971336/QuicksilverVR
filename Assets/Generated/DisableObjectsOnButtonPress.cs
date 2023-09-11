@@ -8,9 +8,12 @@ public class DisableEnableObjectsOnButtonPress : MonoBehaviour
 
     [Tooltip("The button on the controller to press to disable and enable objects.")]
     public OVRInput.Button buttonToPressB = OVRInput.Button.Two;
+    
 
     [Tooltip("The objects to disable and enable when the button is pressed.")]
     public GameObject[] objectsToDisableEnable;
+
+    public GameObject performerEyes;
 
     private bool objectsDisabled = false;
 
@@ -18,7 +21,6 @@ public class DisableEnableObjectsOnButtonPress : MonoBehaviour
     {
         if (OVRInput.Get(buttonToPressA))
         {
-            Debug.Log("One");
             if (!objectsDisabled)
             {
                 foreach (GameObject obj in objectsToDisableEnable)
@@ -29,7 +31,7 @@ public class DisableEnableObjectsOnButtonPress : MonoBehaviour
                 objectsDisabled = true;
             }
         }
-
+        
         if (OVRInput.Get(buttonToPressA) && OVRInput.Get(buttonToPressB))
         {
             foreach (GameObject obj in objectsToDisableEnable)

@@ -5,8 +5,8 @@ using PhotonRealtime = Photon.Realtime;
 
 public class ObjectActivationSync : MonoBehaviour
 {
-    [Tooltip("Tag of the Photon Network object to delete.")]
-    [SerializeField] private string objectTag = "scenes";
+    [Tooltip("Tag of the Photon Network object to delete.")] [SerializeField]
+    private string objectTag = "scenes";
 
     private void Start()
     {
@@ -26,20 +26,7 @@ public class ObjectActivationSync : MonoBehaviour
             PhotonPun.PhotonNetwork.Instantiate(Prefab.name, Prefab.transform.position, Prefab.transform.rotation);
     }
 
-    public void DeactivateObject()
-    {
-        // Call this method to disable the GameObject across the network.
-        // photonView.RPC("SetActiveRPC", RpcTarget.All, false);
-    }
-
-    // RPC method to set the active state of the GameObject for all clients.
-    // [PunRPC]
-    // private void SetActiveRPC(bool isActive)
-    // {
-    //     // Set the active state of the GameObject based on the received value.
-    //     scene.SetActive(isActive);
-    // }
-
+   
     public void DeletePhotonObjectWithTag()
     {
         var objectsToDelete = GameObject.FindGameObjectsWithTag(objectTag);
