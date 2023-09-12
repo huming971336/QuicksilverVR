@@ -32,7 +32,7 @@ public class PassthroughStyler : MonoBehaviour
     private Vector3 _cursorPosition = Vector3.zero;
     private bool _settingColor = false;
     private Color _savedColor = Color.white;
-    private float _savedBrightness = 0.0f;
+    public float _savedBrightness = 0.0f;
     private float _savedContrast = 0.0f;
     private float _savedSaturation = 0.0f;
 

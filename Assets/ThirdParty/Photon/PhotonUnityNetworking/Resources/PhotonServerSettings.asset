@@ -52,6 +52,10 @@ MonoBehaviour:
   - SetActiveRPC
   - SetActiveObject
   - ChangeSkyboxRPC
+  - SetAlpha
+  - ChangeAlpha
+  - StartFadeBrightnessToValue
+  - StartFadeBrightnessToSavedValue
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
