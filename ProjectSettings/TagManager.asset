@@ -6,6 +6,8 @@ TagManager:
   tags:
   - CubeAnchor
   - scenes
+  - SamplesInfoPanel
+  - Anchor
   layers:
   - Default
   - TransparentFX
