@@ -5,12 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Menu.unity
     guid: e26f81c2c09f1e3439e68ccaa68be16d
-  - enabled: 1
+  - enabled: 0
     path: Assets/CloudChamber/CC_Scenes/SharedSpatialAnchors.unity
     guid: aa837f322991b3946908831c850aeb5e
+  - enabled: 1
+    path: Assets/CloudChamber/CC_Scenes/PassthroughStyleTest.unity
+    guid: 912af6ea316a821469fb156393b85855
   - enabled: 1
     path: Assets/CoLocation/Scenes/CoLocatedSafety.unity
     guid: 378da2a56579b4149af7ee73386acda7
