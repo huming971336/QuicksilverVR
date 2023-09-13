@@ -49,6 +49,47 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
         }
     }
 
+
+    private IEnumerator FadeOpacityToZero()
+    {
+        float t = 0f;
+        float startOpacity = 1f;
+
+        while (t < 1f)
+        {
+            t += Time.deltaTime * passthroughChangeSpeed;
+            float newBrightness = Mathf.Lerp(startOpacity, 0f, t);
+            passthroughStyler._savedOpacity = newBrightness;
+            yield return null;
+        }
+    }
+    private IEnumerator FadeOpacityToOne()
+    {
+        float t = 0f;
+        float startOpacity = 0f;
+
+        while (t < 1f)
+        {
+            t += Time.deltaTime * passthroughChangeSpeed;
+            float newBrightness = Mathf.Lerp(startOpacity, 1f, t);
+            passthroughStyler._savedOpacity = newBrightness;
+            yield return null;
+        }
+    }
+
+    [PunRPC]
+    public void StartFadeOpacityToOne()
+    {
+        StartCoroutine(FadeOpacityToOne());
+    }
+
+    [PunRPC]
+    public void StartFadeOpacityToZero()
+    {
+        StartCoroutine(FadeOpacityToZero());
+    }
+
+
     [PunRPC]
     public void StartFadeBrightnessToValue(float targetValue)
     {

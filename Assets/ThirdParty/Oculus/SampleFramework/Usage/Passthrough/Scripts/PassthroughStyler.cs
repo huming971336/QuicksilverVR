@@ -35,6 +35,7 @@ public class PassthroughStyler : MonoBehaviour
     public float _savedBrightness = 0.0f;
     private float _savedContrast = 0.0f;
     private float _savedSaturation = 0.0f;
+    public float _savedOpacity = 1.0f;
 
     private OVRPassthroughLayer.ColorMapEditorType _currentStyle =
         OVRPassthroughLayer.ColorMapEditorType.ColorAdjustment;
@@ -110,6 +111,13 @@ public class PassthroughStyler : MonoBehaviour
     {
         _savedContrast = newValue;
         UpdateBrighnessContrastSaturation();
+    }
+
+    public void OnOpacityChange(float newValue)
+    {
+        _savedOpacity = newValue;
+        UpdatePassthroughOpacity();
+
     }
 
     /// <summary>
@@ -247,6 +255,12 @@ public class PassthroughStyler : MonoBehaviour
     private void UpdateBrighnessContrastSaturation()
     {
         _passthroughLayer.SetBrightnessContrastSaturation(_savedBrightness, _savedContrast, _savedSaturation);
+    }
+
+    private void UpdatePassthroughOpacity()
+    {
+        _passthroughLayer.textureOpacity = _savedOpacity;
+
     }
 
     private void ShowFullMenu(bool doShow)
