@@ -9,14 +9,14 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
     public float passthroughChangeSpeed = 1f;
 
 
-    private PassthroughStyler passthroughStyler;
+   [SerializeField] PassthroughStyler passthroughStyler;
     private float savedBrightness;
     private float savedStateOfPassthrough;
 
 
     private void Awake()
     {
-        passthroughStyler = GetComponent<PassthroughStyler>();
+        passthroughStyler = gameObject.GetComponent<PassthroughStyler>();
         savedBrightness = passthroughStyler._savedBrightness;
    //     savedStateOfPassthrough = passthroughStyler.
     }
@@ -60,6 +60,8 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
             t += Time.deltaTime * passthroughChangeSpeed;
             float newBrightness = Mathf.Lerp(startOpacity, 0f, t);
             passthroughStyler._savedOpacity = newBrightness;
+            passthroughStyler.UpdatePassthroughOpacity();
+
             yield return null;
         }
     }
@@ -73,6 +75,8 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
             t += Time.deltaTime * passthroughChangeSpeed;
             float newBrightness = Mathf.Lerp(startOpacity, 1f, t);
             passthroughStyler._savedOpacity = newBrightness;
+            passthroughStyler.UpdatePassthroughOpacity();
+
             yield return null;
         }
     }
@@ -87,18 +91,32 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
     [PunRPC]
     public void StartFadeOpacityToOne()
     {
-        passthroughStyler._savedOpacity = 1f;
-        Debug.Log("opacity 1");
-       // StartCoroutine(FadeOpacityToOne());
+        if (PhotonNetwork.LocalPlayer.NickName[0]+"" != "T")
+        {
+          //  passthroughStyler._savedOpacity = 1f;
+            Debug.Log("opacity 1");
+           /// passthroughStyler.UpdatePassthroughOpacity();
+            StartCoroutine(FadeOpacityToOne());
+            passthroughStyler.UpdatePassthroughOpacity();
+
+        }
+
+
+        // StartCoroutine(FadeOpacityToOne());
     }
 
     [PunRPC]
     public void StartFadeOpacityToZero()
     {
-        passthroughStyler._savedOpacity = 0f;
-        Debug.Log("opacity 0");
+        if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
+        {
+        //    passthroughStyler._savedOpacity = 0f;
+            Debug.Log("opacity 0");
+            
+           StartCoroutine(FadeOpacityToZero());
+            passthroughStyler.UpdatePassthroughOpacity();
 
-        StartCoroutine(FadeOpacityToZero());
+        }
     }
 
 

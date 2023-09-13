@@ -257,7 +257,7 @@ public class PassthroughStyler : MonoBehaviour
         _passthroughLayer.SetBrightnessContrastSaturation(_savedBrightness, _savedContrast, _savedSaturation);
     }
 
-    private void UpdatePassthroughOpacity()
+    public void UpdatePassthroughOpacity()
     {
         _passthroughLayer.textureOpacity = _savedOpacity;
 
