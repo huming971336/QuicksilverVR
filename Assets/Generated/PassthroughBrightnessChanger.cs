@@ -6,14 +6,19 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
 {
     [Tooltip("Adjust the speed of brightness change")]
     public float brightnessChangeSpeed = 1f;
+    public float passthroughChangeSpeed = 1f;
+
 
     private PassthroughStyler passthroughStyler;
     private float savedBrightness;
+    private float savedStateOfPassthrough;
+
 
     private void Awake()
     {
         passthroughStyler = GetComponent<PassthroughStyler>();
         savedBrightness = passthroughStyler._savedBrightness;
+   //     savedStateOfPassthrough = passthroughStyler.
     }
 
     private IEnumerator FadeBrightnessToValue(float targetValue)

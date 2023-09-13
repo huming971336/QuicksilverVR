@@ -4661,6 +4661,7 @@ MonoBehaviour:
   _mainCanvas: {fileID: 0}
   _compactObjects: []
   _objectsToHideForColorPassthrough: []
+  _savedBrightness: 0
 --- !u!114 &1791676626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4922,8 +4923,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6170873487495343377, guid: 3b9dc0e9b706d014b92571d8897961d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1938301007}
   m_SourcePrefab: {fileID: 100100000, guid: 3b9dc0e9b706d014b92571d8897961d7, type: 3}
+--- !u!1 &1938301006 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6170873487495343377, guid: 3b9dc0e9b706d014b92571d8897961d7, type: 3}
+  m_PrefabInstance: {fileID: 1938301005}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1938301007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938301006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08393c4fa79cbc24992bbfb6d963f596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skyboxMaterial: {fileID: 2100000, guid: 2b5e2dcd94260594591020ace15752fb, type: 2}
 --- !u!1 &1939003415
 GameObject:
   m_ObjectHideFlags: 0
