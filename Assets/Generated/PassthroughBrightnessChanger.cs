@@ -76,16 +76,28 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
             yield return null;
         }
     }
-
+    public void FadeClientOpacityOne()
+    {
+        photonView.RPC("StartFadeOpacityToOne", RpcTarget.All);
+    }
+    public void FadeClientOpacityZero()
+    {
+        photonView.RPC("StartFadeOpacityToZero", RpcTarget.All);
+    }
     [PunRPC]
     public void StartFadeOpacityToOne()
     {
-        StartCoroutine(FadeOpacityToOne());
+        passthroughStyler._savedOpacity = 1f;
+        Debug.Log("opacity 1");
+       // StartCoroutine(FadeOpacityToOne());
     }
 
     [PunRPC]
     public void StartFadeOpacityToZero()
     {
+        passthroughStyler._savedOpacity = 0f;
+        Debug.Log("opacity 0");
+
         StartCoroutine(FadeOpacityToZero());
     }
 

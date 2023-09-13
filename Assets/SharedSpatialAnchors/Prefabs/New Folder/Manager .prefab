@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 6997390729624367288}
   - component: {fileID: 3629453335632333328}
   - component: {fileID: 4813822067938622402}
+  - component: {fileID: 20461396847269788}
+  - component: {fileID: 6903703149599886369}
+  - component: {fileID: 3433049189978659347}
   m_Layer: 0
   m_Name: 'Manager '
   m_TagString: Untagged
@@ -31,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3629453335632333328
 MonoBehaviour:
@@ -45,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adcfafc64f2fee244ae8c8959bf653f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: {fileID: 0}
+  objectTag: scenes
 --- !u!114 &4813822067938622402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,3 +71,52 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &20461396847269788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6170873487495343377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08393c4fa79cbc24992bbfb6d963f596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skyboxMaterial: {fileID: 2100000, guid: 2b5e2dcd94260594591020ace15752fb, type: 2}
+--- !u!114 &6903703149599886369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6170873487495343377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df9251ac6ef9cc747ac08736e6e3011e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brightnessChangeSpeed: 1
+  passthroughChangeSpeed: 1
+--- !u!114 &3433049189978659347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6170873487495343377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d79cccad46eec343942a7dc28abf817, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controllerHand: 0
+  _passthroughLayer: {fileID: 0}
+  _colorWheel: {fileID: 0}
+  _colorTexture: {fileID: 0}
+  _colorLutTexture: {fileID: 0}
+  _mainCanvas: {fileID: 0}
+  _compactObjects: []
+  _objectsToHideForColorPassthrough: []
+  _savedBrightness: 0
+  _savedOpacity: 1
