@@ -1285,6 +1285,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CloudChamber_Radiation
       objectReference: {fileID: 0}
+    - target: {fileID: 3086317633949084749, guid: 0c54162de317b754bbaaedd28b32746f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7983705342237325141, guid: 0c54162de317b754bbaaedd28b32746f, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -3447,6 +3451,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3553657601253623781, guid: af9bfc2cb9c48ec458b9f8db49cd5608, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5265268330222624478, guid: af9bfc2cb9c48ec458b9f8db49cd5608, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -3494,6 +3502,10 @@ PrefabInstance:
     - target: {fileID: 7898449555769260125, guid: af9bfc2cb9c48ec458b9f8db49cd5608, type: 3}
       propertyPath: m_Name
       value: BlackFader
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898449555769260125, guid: af9bfc2cb9c48ec458b9f8db49cd5608, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8456206118203851375, guid: af9bfc2cb9c48ec458b9f8db49cd5608, type: 3}
@@ -5067,7 +5079,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4813822067938622402, guid: 3b9dc0e9b706d014b92571d8897961d7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7232,7 +7245,7 @@ MonoBehaviour:
   overridePerLayerColorScaleAndOffset: 0
   colorScale: {x: 1, y: 1, z: 1, w: 1}
   colorOffset: {x: 0, y: 0, z: 0, w: 0}
-  colorMapEditorType_: 1
+  colorMapEditorType_: 0
   colorMapEditorGradient:
     serializedVersion: 2
     key0: {r: 0.990566, g: 0.96650267, b: 0.744482, a: 1}
@@ -7275,7 +7288,7 @@ MonoBehaviour:
   textureOpacity_: 1
   edgeRenderingEnabled_: 0
   edgeColor_: {r: 1, g: 1, b: 1, a: 1}
-  colorMapType: 1
+  colorMapType: 0
 --- !u!114 &7079690333416410984
 MonoBehaviour:
   m_ObjectHideFlags: 0
