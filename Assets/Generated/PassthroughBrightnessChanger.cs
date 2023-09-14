@@ -107,7 +107,7 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
         }
     }*/
 
-    [PunRPC]
+   
     public void FadeClientOpacityOne(float passthroughChangeSpeed)
     {
         t = 0;
