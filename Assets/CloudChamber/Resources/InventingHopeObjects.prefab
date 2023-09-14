@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 177020908493321049}
   m_LocalRotation: {x: -0.0017590572, y: -0.0034052343, z: -0.020950641, w: 0.9997732}
   m_LocalPosition: {x: 2.3117845, y: 0.34663817, z: -7.330123}
-  m_LocalScale: {x: 100, y: 100, z: 99.99999}
+  m_LocalScale: {x: 128.28, y: 128.28, z: 128.27998}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5002221984626663290}
@@ -103,7 +103,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 7666581100362495260}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -152,7 +153,7 @@ Transform:
   m_GameObject: {fileID: 569985611054877793}
   m_LocalRotation: {x: 0.03351879, y: 0, z: -0, w: 0.9994381}
   m_LocalPosition: {x: 1.3723558, y: 0.49716908, z: -4.463851}
-  m_LocalScale: {x: 224.97284, y: 224.97289, z: 224.97289}
+  m_LocalScale: {x: 284.63565, y: 284.6357, z: 284.6357}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5002221984626663290}
@@ -226,7 +227,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 5305558935259235450}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -410,7 +412,7 @@ Transform:
   - {fileID: 6034800328588301888}
   - {fileID: 1965815359290932971}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: -90.335, z: 0}
 --- !u!114 &3738506375027258429
 MonoBehaviour:
@@ -449,7 +451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
+  m_SynchronizeScale: 1
   m_UseLocal: 1
 --- !u!1 &2216127722471047026
 GameObject:
@@ -479,8 +481,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2216127722471047026}
   m_LocalRotation: {x: -0.00000007375698, y: 0.96716124, z: -0.000000042146844, w: 0.25416368}
-  m_LocalPosition: {x: 2.7419598, y: 0.19642806, z: -3.0928311}
-  m_LocalScale: {x: 100.00002, y: 100.000015, z: 100}
+  m_LocalPosition: {x: 2.743, y: 0.123, z: -2.994}
+  m_LocalScale: {x: 125.63003, y: 125.63002, z: 125.63}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5002221984626663290}
@@ -554,7 +556,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 8753692740515792357}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -726,8 +729,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3864764739813680256}
   m_LocalRotation: {x: -0.66026384, y: 0.2530843, z: 0.2530843, w: 0.66026384}
-  m_LocalPosition: {x: 0.28, y: 0.77, z: -1.04}
-  m_LocalScale: {x: 167.20557, y: 167.20557, z: 167.20557}
+  m_LocalPosition: {x: 0.495, y: 1.325, z: -1.041}
+  m_LocalScale: {x: 324.35272, y: 324.35272, z: 324.35272}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5002221984626663290}
@@ -851,8 +854,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4292693833999382244}
   m_LocalRotation: {x: -0.6750047, y: -0.2118531, z: -0.2121183, w: 0.6741607}
-  m_LocalPosition: {x: 2.4647725, y: 0.18656938, z: 3.3646371}
-  m_LocalScale: {x: 31.749308, y: 31.749308, z: 31.74931}
+  m_LocalPosition: {x: 2.4647725, y: 0.137, z: 3.3646371}
+  m_LocalScale: {x: 38.483337, y: 38.483337, z: 38.483337}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5002221984626663290}
@@ -926,7 +929,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 5758891190773582229}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -974,8 +978,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5388630865290522410}
   m_LocalRotation: {x: -0.13141693, y: 0.5478445, z: 0.16141115, w: 0.81027305}
-  m_LocalPosition: {x: -0.5788673, y: 0.14508921, z: -2.592109}
-  m_LocalScale: {x: 141.63934, y: 141.63933, z: 141.63933}
+  m_LocalPosition: {x: -0.498, y: 0.14508921, z: -2.593}
+  m_LocalScale: {x: 212.99725, y: 212.99722, z: 212.99722}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5002221984626663290}
@@ -1049,7 +1053,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 6732400520426564369}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -1096,14 +1101,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7888154819798871714}
-  m_LocalRotation: {x: 0.00000019230289, y: -0.14548533, z: -0.0000000052683573, w: 0.98936045}
+  m_LocalRotation: {x: 0.0000001898206, y: -0.010248751, z: -0.000000031245772, w: 0.9999475}
   m_LocalPosition: {x: -1.3828601, y: 2.3110974, z: 3.8103728}
   m_LocalScale: {x: 149.69612, y: 149.69614, z: 149.69615}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5002221984626663290}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -1.174, z: 0}
 --- !u!33 &8468180057735174169
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1172,7 +1177,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 4193569151155893840}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -1221,7 +1227,7 @@ Transform:
   m_GameObject: {fileID: 9124773692241499244}
   m_LocalRotation: {x: 0.00000012248834, y: -0.15739632, z: 0.000000015805067, w: 0.98753554}
   m_LocalPosition: {x: 2.1396217, y: 0.6306382, z: 7.21939}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 122.1, y: 122.1, z: 122.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5002221984626663290}
@@ -1295,7 +1301,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 1866222556399394098}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
