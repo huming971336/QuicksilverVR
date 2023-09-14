@@ -8,6 +8,8 @@ TagManager:
   - scenes
   - SamplesInfoPanel
   - Anchor
+  - BlackFader
+  - PNGAnim
   layers:
   - Default
   - TransparentFX

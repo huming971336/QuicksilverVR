@@ -6,7 +6,7 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
 {
     [Tooltip("Adjust the speed of brightness change")]
     public float brightnessChangeSpeed = 1f;
-    public float passthroughChangeSpeed = 1f;
+   // public float passthroughChangeSpeed = 1f;
 
 
    [SerializeField] PassthroughStyler passthroughStyler;
@@ -50,7 +50,7 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
     }
 
 
-    private IEnumerator FadeOpacityToZero()
+    private IEnumerator FadeOpacityToZero(float passthroughChangeSpeed)
     {
         float t = 0f;
         float startOpacity = 1f;
@@ -65,7 +65,7 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
             yield return null;
         }
     }
-    private IEnumerator FadeOpacityToOne()
+    private IEnumerator FadeOpacityToOne(float passthroughChangeSpeed)
     {
         float t = 0f;
         float startOpacity = 0f;
@@ -80,23 +80,23 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
             yield return null;
         }
     }
-    public void FadeClientOpacityOne()
+    public void FadeClientOpacityOne(float passthroughChangeSpeed)
     {
-        photonView.RPC("StartFadeOpacityToOne", RpcTarget.All);
+        photonView.RPC("StartFadeOpacityToOne", RpcTarget.All, passthroughChangeSpeed);
     }
-    public void FadeClientOpacityZero()
+    public void FadeClientOpacityZero(float passthroughChangeSpeed)
     {
-        photonView.RPC("StartFadeOpacityToZero", RpcTarget.All);
+        photonView.RPC("StartFadeOpacityToZero", RpcTarget.All, passthroughChangeSpeed);
     }
     [PunRPC]
-    public void StartFadeOpacityToOne()
+    public void StartFadeOpacityToOne(float passthroughChangeSpeed)
     {
         if (PhotonNetwork.LocalPlayer.NickName[0]+"" != "T")
         {
           //  passthroughStyler._savedOpacity = 1f;
             Debug.Log("opacity 1");
            /// passthroughStyler.UpdatePassthroughOpacity();
-            StartCoroutine(FadeOpacityToOne());
+            StartCoroutine(FadeOpacityToOne(passthroughChangeSpeed));
             passthroughStyler.UpdatePassthroughOpacity();
 
         }
@@ -106,14 +106,14 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    public void StartFadeOpacityToZero()
+    public void StartFadeOpacityToZero(float passthroughChangeSpeed)
     {
         if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
         {
         //    passthroughStyler._savedOpacity = 0f;
             Debug.Log("opacity 0");
             
-           StartCoroutine(FadeOpacityToZero());
+           StartCoroutine(FadeOpacityToZero(passthroughChangeSpeed));
             passthroughStyler.UpdatePassthroughOpacity();
 
         }
