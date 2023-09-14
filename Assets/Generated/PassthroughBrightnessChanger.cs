@@ -38,7 +38,7 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
         }
     }
 
-    private IEnumerator FadeBrightnessToSavedValue(float targetValue)
+   /* private IEnumerator FadeBrightnessToSavedValue(float targetValue)
     {
         float t = 0f;
         float startBrightness = targetValue;
@@ -50,10 +50,10 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
             passthroughStyler._savedBrightness = newBrightness;
             yield return null;
         }
-    }
+    }*/
 
 
-    private IEnumerator FadeOpacityToZero(float passthroughChangeSpeed)
+   /* private IEnumerator FadeOpacityToZero(float passthroughChangeSpeed)
     {
         float t = 0f;
         float startOpacity = 1f;
@@ -67,7 +67,7 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
 
             yield return null;
         }
-    }
+    }*/
     float t = 0f;
     float startOpacity = 0f;
     private void FixedUpdate()
@@ -85,7 +85,7 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
         {
 
             t += Time.deltaTime * passthroughChangeSpeedGlobal;
-            float newBrightness = Mathf.Lerp(startOpacity, 1f, t);
+            float newBrightness = Mathf.Lerp(startOpacity, 0f, t);
             passthroughStyler._savedOpacity = newBrightness;
             passthroughStyler.UpdatePassthroughOpacity();
         }
@@ -108,30 +108,40 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
     }*/
 
    
-    public void FadeClientOpacityOne(float passthroughChangeSpeed)
+    public void FadeClientOpacityOneButton(float passthroughChangeSpeed)
     {
         t = 0;
         startOpacity = passthroughStyler._passthroughLayer.textureOpacity;
         passthroughChangeSpeedGlobal = passthroughChangeSpeed;
         passthroughOpen = true;
-       
-        //photonView.RPC("StartFadeOpacityToOne", RpcTarget.All, passthroughChangeSpeed);
+        passthroughClose = false;
+
+        photonView.RPC("StartFadeOpacityToOne", RpcTarget.All, passthroughChangeSpeed);
     }
-    public void FadeClientOpacityZero(float passthroughChangeSpeed)
+    public void FadeClientOpacityZeroButton(float passthroughChangeSpeed)
     {
+        t = 0;
+        startOpacity = passthroughStyler._passthroughLayer.textureOpacity;
+        passthroughChangeSpeedGlobal = passthroughChangeSpeed;
+        passthroughOpen = false;
+        passthroughClose = true;
         photonView.RPC("StartFadeOpacityToZero", RpcTarget.All, passthroughChangeSpeed);
     }
-
+    
 
     [PunRPC]
     public void StartFadeOpacityToOne(float passthroughChangeSpeed)
     {
-        /*if (PhotonNetwork.LocalPlayer.NickName[0]+"" != "T")
-        {*/
-          //  passthroughStyler._savedOpacity = 1f;
+        if (PhotonNetwork.LocalPlayer.NickName[0]+"" != "T")
+        {
+            t = 0;
+            startOpacity = passthroughStyler._passthroughLayer.textureOpacity;
+            passthroughChangeSpeedGlobal = passthroughChangeSpeed;
+            passthroughOpen = true;
+            passthroughClose = false;
             
 
-       // }
+        }
 
 
         // StartCoroutine(FadeOpacityToOne());
@@ -140,18 +150,18 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
     [PunRPC]
     public void StartFadeOpacityToZero(float passthroughChangeSpeed)
     {
-      /* if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
-       {*/
-        //    passthroughStyler._savedOpacity = 0f;
-            Debug.Log("opacity 0");
-            
-           StartCoroutine(FadeOpacityToZero(passthroughChangeSpeed));
-            passthroughStyler.UpdatePassthroughOpacity();
+       if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
+       {
+            t = 0;
+            startOpacity = passthroughStyler._passthroughLayer.textureOpacity;
+            passthroughChangeSpeedGlobal = passthroughChangeSpeed;
+            passthroughOpen = false;
+            passthroughClose = true;
 
-        //}
+        }
     }
 
-
+    /*
     [PunRPC]
     public void StartFadeBrightnessToValue(float targetValue)
     {
@@ -162,5 +172,5 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
     public void StartFadeBrightnessToSavedValue(float targetValue)
     {
         StartCoroutine(FadeBrightnessToSavedValue(targetValue));
-    }
+    }*/
 }
