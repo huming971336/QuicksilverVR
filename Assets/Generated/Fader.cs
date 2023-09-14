@@ -32,10 +32,10 @@ public class Fader : MonoBehaviourPun
     private void ChangeAlpha(float targetAlpha, float changeSpeed)
     {
         //if getting object at start not working we can move it to here
-        if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
-        {
+        /*if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
+        {*/
             StartCoroutine(ChangeAlphaCoroutine(targetAlpha, changeSpeed));
-        }
+       // }
     }
 
     public void FadeOut(float changeSpeed)
