@@ -14,12 +14,11 @@ public class Fader : MonoBehaviourPun
     {
         PhotonView a = gameObject.AddComponent<PhotonView>();
         a.ViewID = 666;
-        if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
-        {
+      
             GameObject objectToActivate = GameObject.FindGameObjectWithTag("BlackFader");
             spriteRenderer = objectToActivate.GetComponent<SpriteRenderer>();
 
-        }
+        
     }
 
     private void Start()
