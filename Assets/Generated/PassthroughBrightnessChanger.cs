@@ -13,7 +13,10 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
     private float savedBrightness;
     private float savedStateOfPassthrough;
 
+    public bool passthroughOpen = false;
+    public bool passthroughClose = false;
 
+    public float passthroughChangeSpeedGlobal;
     private void Awake()
     {
         passthroughStyler = gameObject.GetComponent<PassthroughStyler>();
@@ -65,7 +68,31 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
             yield return null;
         }
     }
-    private IEnumerator FadeOpacityToOne(float passthroughChangeSpeed)
+    float t = 0f;
+    float startOpacity = 0f;
+    private void FixedUpdate()
+    {
+        if(passthroughOpen)
+        {
+            t += Time.deltaTime * passthroughChangeSpeedGlobal;
+            float newBrightness = Mathf.Lerp(startOpacity, 1f, t);
+            passthroughStyler._savedOpacity = newBrightness;
+            passthroughStyler.UpdatePassthroughOpacity();
+            
+        }
+
+        if(passthroughClose)
+        {
+
+            t += Time.deltaTime * passthroughChangeSpeedGlobal;
+            float newBrightness = Mathf.Lerp(startOpacity, 1f, t);
+            passthroughStyler._savedOpacity = newBrightness;
+            passthroughStyler.UpdatePassthroughOpacity();
+        }
+
+    }
+    /*
+    public void FadeOpacityToOne(float passthroughChangeSpeed)
     {
         float t = 0f;
         float startOpacity = 0f;
@@ -77,27 +104,32 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
             passthroughStyler._savedOpacity = newBrightness;
             passthroughStyler.UpdatePassthroughOpacity();
 
-            yield return null;
         }
-    }
+    }*/
+
+    [PunRPC]
     public void FadeClientOpacityOne(float passthroughChangeSpeed)
     {
-        photonView.RPC("StartFadeOpacityToOne", RpcTarget.All, passthroughChangeSpeed);
+        t = 0;
+        startOpacity = passthroughStyler._passthroughLayer.textureOpacity;
+        passthroughChangeSpeedGlobal = passthroughChangeSpeed;
+        passthroughOpen = true;
+       
+        //photonView.RPC("StartFadeOpacityToOne", RpcTarget.All, passthroughChangeSpeed);
     }
     public void FadeClientOpacityZero(float passthroughChangeSpeed)
     {
         photonView.RPC("StartFadeOpacityToZero", RpcTarget.All, passthroughChangeSpeed);
     }
+
+
     [PunRPC]
     public void StartFadeOpacityToOne(float passthroughChangeSpeed)
     {
         /*if (PhotonNetwork.LocalPlayer.NickName[0]+"" != "T")
         {*/
           //  passthroughStyler._savedOpacity = 1f;
-            Debug.Log("opacity 1");
-           /// passthroughStyler.UpdatePassthroughOpacity();
-            StartCoroutine(FadeOpacityToOne(passthroughChangeSpeed));
-            passthroughStyler.UpdatePassthroughOpacity();
+            
 
        // }
 
