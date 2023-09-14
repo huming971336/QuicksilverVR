@@ -54,6 +54,7 @@ MonoBehaviour:
     - Oculus.Spatializer
     - Oculus.Voice.Demo
     - Oculus.VR
+    - OtoonShader
     - PhotonChat
     - PhotonRealtime
     - PhotonUnityNetworking
