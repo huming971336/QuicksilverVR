@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2733030628893466162
+--- !u!1 &1973191849725359061
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2687679640194284570}
-  - component: {fileID: 9166523508923253932}
-  - component: {fileID: 291066392858777271}
-  - component: {fileID: 4058280087350846916}
-  - component: {fileID: 5806937856039685427}
+  - component: {fileID: 3223692453473747798}
+  - component: {fileID: 397989741393988145}
+  - component: {fileID: 4855305084090072181}
+  - component: {fileID: 1492759985088918753}
+  - component: {fileID: 8363713695592244878}
   m_Layer: 0
-  m_Name: chapel from the outside
+  m_Name: 'chapel from the outside '
   m_TagString: scenes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2687679640194284570
+--- !u!4 &3223692453473747798
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2733030628893466162}
-  m_LocalRotation: {x: -0.4986368, y: 0.5013595, z: 0.5013595, w: 0.4986368}
-  m_LocalPosition: {x: -3.65, y: 0.34, z: 1.85}
-  m_LocalScale: {x: 113.11406, y: 113.11406, z: 113.11406}
+  m_GameObject: {fileID: 1973191849725359061}
+  m_LocalRotation: {x: -0.50045633, y: 0.49954325, z: 0.49954325, w: 0.50045633}
+  m_LocalPosition: {x: -5.58, y: 0.398, z: 1.87}
+  m_LocalScale: {x: 133.4065, y: 133.4065, z: 133.4065}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90.312}
---- !u!33 &9166523508923253932
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 89.895}
+--- !u!33 &397989741393988145
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2733030628893466162}
+  m_GameObject: {fileID: 1973191849725359061}
   m_Mesh: {fileID: 9052399103338310346, guid: c07dc96379f56d74eb0a03d894dd5cdd, type: 3}
---- !u!23 &291066392858777271
+--- !u!23 &4855305084090072181
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2733030628893466162}
+  m_GameObject: {fileID: 1973191849725359061}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -85,29 +85,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4058280087350846916
+--- !u!114 &1492759985088918753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2733030628893466162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
---- !u!114 &5806937856039685427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2733030628893466162}
+  m_GameObject: {fileID: 1973191849725359061}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
@@ -120,7 +104,23 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 4058280087350846916}
+  - {fileID: 8363713695592244878}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &8363713695592244878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973191849725359061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
+  m_UseLocal: 1
