@@ -36,15 +36,15 @@ public class Fader : MonoBehaviourPun
     private void FadeOutAlpha(float fadeSpeed)
     {
 
-        if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
-        {
+       /* if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
+        {*/
             fadeOut = true;
             fadeIn = false;
 
             fadeSpeedGlobal = fadeSpeed;
             Debug.Log("Fade out");
 
-        }
+       // }
 
         //if getting object at start not working we can move it to here
 
@@ -56,14 +56,14 @@ public class Fader : MonoBehaviourPun
     private void FadeInAlpha(float fadeSpeed)
     {
 
-        if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
-        {
+     /*   if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
+        {*/
             fadeIn = true;
             fadeOut = false;
 
             fadeSpeedGlobal = fadeSpeed;
             Debug.Log("Fade in");
-        }
+     //   }
 
         //if getting object at start not working we can move it to here
 
