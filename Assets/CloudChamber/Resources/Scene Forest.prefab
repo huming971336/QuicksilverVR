@@ -162,7 +162,7 @@ Transform:
   - {fileID: 8970291346673683482}
   - {fileID: 8968458880163619507}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1002688463208297606
 MonoBehaviour:
@@ -611,11 +611,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198076706272509068, guid: 4cac31a8b0b61924d82267fd101d2361, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.04
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 198076706272509068, guid: 4cac31a8b0b61924d82267fd101d2361, type: 3}
       propertyPath: InitialModule.startSize.minScalar
-      value: 0.01
+      value: 0.03
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

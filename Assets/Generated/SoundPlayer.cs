@@ -13,7 +13,7 @@ public class SoundPlayer : MonoBehaviourPun
     {
         if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
         {
-           AudioSource.PlayClipAtPoint(introClip, transform.position);
+           AudioSource.PlayClipAtPoint(introClip, transform.position, 1.5f);
         }
     }
 
@@ -22,7 +22,7 @@ public class SoundPlayer : MonoBehaviourPun
     {
         if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
         {
-            AudioSource.PlayClipAtPoint(chamberClip, transform.position);
+            AudioSource.PlayClipAtPoint(chamberClip, transform.position, 1.5f);
         }
     }
 
