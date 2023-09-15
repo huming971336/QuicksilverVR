@@ -127,15 +127,15 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
     [PunRPC]
     public void StartFadeOpacityToOne(float passthroughChangeSpeed)
     {
-        if (PhotonNetwork.LocalPlayer.NickName[0]+"" != "T")
-        {
+      /*  if (PhotonNetwork.LocalPlayer.NickName[0]+"" != "T")
+        {*/
             startOpacity = passthroughStyler._passthroughLayer.textureOpacity;
             passthroughChangeSpeedGlobal = passthroughChangeSpeed;
             passthroughOpen = true;
             passthroughClose = false;
-            
+        Debug.Log("passthrough fading in");
 
-        }
+     //   }
 
 
         // StartCoroutine(FadeOpacityToOne());
@@ -144,14 +144,16 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
     [PunRPC]
     public void StartFadeOpacityToZero(float passthroughChangeSpeed)
     {
-       if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
-       {
+      /* if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
+       {*/
             startOpacity = passthroughStyler._passthroughLayer.textureOpacity;
             passthroughChangeSpeedGlobal = passthroughChangeSpeed;
             passthroughOpen = false;
             passthroughClose = true;
+        Debug.Log("passthrough fading out");
 
-        }
+
+        // }
     }
 
     /*

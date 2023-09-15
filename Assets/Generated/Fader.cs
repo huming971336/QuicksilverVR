@@ -5,7 +5,7 @@ using System.Collections; // Add this line to fix the error
 public class Fader : MonoBehaviourPun
 {
     [Tooltip("Speed at which the alpha changes")]
-    public float fadeSpeed = 1f;
+    //00public float fadeSpeed = 1f;
 
     private SpriteRenderer spriteRenderer;
     public GameObject b;
