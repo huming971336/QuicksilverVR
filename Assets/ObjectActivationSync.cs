@@ -26,7 +26,7 @@ public class ObjectActivationSync : MonoBehaviour
             PhotonPun.PhotonNetwork.Instantiate(Prefab.name, Prefab.transform.position, Prefab.transform.rotation);
     }
 
-   
+
     public void DeletePhotonObjectWithTag()
     {
         var objectsToDelete = GameObject.FindGameObjectsWithTag(objectTag);
@@ -34,5 +34,12 @@ public class ObjectActivationSync : MonoBehaviour
         {
             PhotonPun.PhotonNetwork.Destroy(obj);
         }
+    }
+    public void DeletePhotonObject(GameObject deleteObject)
+    {
+        
+        
+            PhotonPun.PhotonNetwork.Destroy(deleteObject);
+       
     }
 }

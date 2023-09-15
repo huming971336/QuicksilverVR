@@ -74,9 +74,8 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
     {
         if(passthroughOpen)
         {
-            t += Time.deltaTime * passthroughChangeSpeedGlobal;
-            float newBrightness = Mathf.Lerp(startOpacity, 1f, t);
-            passthroughStyler._savedOpacity = newBrightness;
+
+            passthroughStyler._savedOpacity = Mathf.Lerp(startOpacity, 1f, Time.deltaTime * passthroughChangeSpeedGlobal);
             passthroughStyler.UpdatePassthroughOpacity();
             
         }
@@ -84,9 +83,7 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
         if(passthroughClose)
         {
 
-            t += Time.deltaTime * passthroughChangeSpeedGlobal;
-            float newBrightness = Mathf.Lerp(startOpacity, 0f, t);
-            passthroughStyler._savedOpacity = newBrightness;
+            passthroughStyler._savedOpacity = Mathf.Lerp(startOpacity, 0f, Time.deltaTime * passthroughChangeSpeedGlobal);
             passthroughStyler.UpdatePassthroughOpacity();
         }
 
@@ -110,8 +107,7 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
    
     public void FadeClientOpacityOneButton(float passthroughChangeSpeed)
     {
-        t = 0;
-        startOpacity = passthroughStyler._passthroughLayer.textureOpacity;
+       // startOpacity = passthroughStyler._passthroughLayer.textureOpacity;
         passthroughChangeSpeedGlobal = passthroughChangeSpeed;
         passthroughOpen = true;
         passthroughClose = false;
@@ -120,8 +116,7 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
     }
     public void FadeClientOpacityZeroButton(float passthroughChangeSpeed)
     {
-        t = 0;
-        startOpacity = passthroughStyler._passthroughLayer.textureOpacity;
+      //  startOpacity = passthroughStyler._passthroughLayer.textureOpacity;
         passthroughChangeSpeedGlobal = passthroughChangeSpeed;
         passthroughOpen = false;
         passthroughClose = true;
@@ -134,7 +129,6 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.LocalPlayer.NickName[0]+"" != "T")
         {
-            t = 0;
             startOpacity = passthroughStyler._passthroughLayer.textureOpacity;
             passthroughChangeSpeedGlobal = passthroughChangeSpeed;
             passthroughOpen = true;
@@ -152,7 +146,6 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
     {
        if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
        {
-            t = 0;
             startOpacity = passthroughStyler._passthroughLayer.textureOpacity;
             passthroughChangeSpeedGlobal = passthroughChangeSpeed;
             passthroughOpen = false;

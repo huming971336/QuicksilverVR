@@ -12,7 +12,7 @@ public class Fader : MonoBehaviourPun
 
     private void Awake()
     {
-        PhotonView a = gameObject.AddComponent<PhotonView>();
+      /*  PhotonView a = gameObject.AddComponent<PhotonView>();
         a.ViewID = 666;
        /* if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
         {*/
@@ -39,6 +39,8 @@ public class Fader : MonoBehaviourPun
         if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
         {
             fadeOut = true;
+            fadeIn = false;
+
             fadeSpeedGlobal = fadeSpeed;
         }
     
@@ -55,6 +57,8 @@ public class Fader : MonoBehaviourPun
         if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
         {
             fadeIn = true;
+            fadeOut = false;
+
             fadeSpeedGlobal = fadeSpeed;
         }
 
@@ -67,7 +71,7 @@ public class Fader : MonoBehaviourPun
         fadeOut = true;
         fadeIn = false;
         fadeSpeedGlobal = fadeSpeed;
-      //  photonView.RPC("FadeOutAlpha", RpcTarget.All, fadeSpeed);
+        photonView.RPC("FadeOutAlpha", RpcTarget.All, fadeSpeed);
     }
 
     public void FadeInButton(float fadeSpeed)
@@ -75,7 +79,7 @@ public class Fader : MonoBehaviourPun
         fadeIn = true;
         fadeOut = false;
         fadeSpeedGlobal = fadeSpeed;
-   //     photonView.RPC("FadeInAlpha", RpcTarget.All, fadeSpeed);
+        photonView.RPC("FadeInAlpha", RpcTarget.All, fadeSpeed);
     }
 
 
