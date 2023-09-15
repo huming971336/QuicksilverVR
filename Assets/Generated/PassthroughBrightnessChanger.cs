@@ -162,7 +162,7 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
             passthroughClose = false;
             Debug.Log("passthrough fading in");
 
-      }
+     }
 
 
         // StartCoroutine(FadeOpacityToOne());
