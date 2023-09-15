@@ -9,7 +9,7 @@ public class PassthroughStyler : MonoBehaviour
     private OVRInput.Controller _controllerHand = OVRInput.Controller.None;
 
     [SerializeField]
-    private OVRPassthroughLayer _passthroughLayer;
+    public OVRPassthroughLayer _passthroughLayer;
 
     [SerializeField]
     private RectTransform _colorWheel;
