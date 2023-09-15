@@ -19,6 +19,9 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
     public float passthroughChangeSpeedGlobal;
     float t = 0f;
     float startOpacity = 0f;
+
+
+
     private void Awake()
     {
         passthroughStyler = gameObject.GetComponent<PassthroughStyler>();
