@@ -8,7 +8,10 @@ public class Fader : MonoBehaviourPun
     //00public float fadeSpeed = 1f;
 
     private SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRendererWhite;
+
     public GameObject b;
+    public GameObject c;
 
     private void Awake()
     {
@@ -18,17 +21,26 @@ public class Fader : MonoBehaviourPun
         {*/
             b = GameObject.FindGameObjectWithTag("BlackFader");
             spriteRenderer = b.GetComponent<SpriteRenderer>();
+            c = GameObject.FindGameObjectWithTag("WhiteFader");
+        spriteRendererWhite = c.GetComponent<SpriteRenderer>();
 
-       // }
+
+        // }
     }
     bool fadeOut = false;
-    float fadeSpeedGlobal;
     bool fadeIn = false;
+
+    bool fadeOutWhite = false;
+    bool fadeInWhite = false;
+    float fadeSpeedGlobal;
+
 
     private void Start()
     {
         fadeOut = false;
         fadeIn = false;
+        fadeOutWhite = false;
+       fadeInWhite = false;
 
     }
 
@@ -69,6 +81,43 @@ public class Fader : MonoBehaviourPun
 
     }
 
+    [PunRPC]
+
+    private void FadeInAlphaWhite(float fadeSpeed)
+    {
+
+        /*   if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
+           {*/
+        fadeInWhite = true;
+        fadeOutWhite = false;
+
+        fadeSpeedGlobal = fadeSpeed;
+        Debug.Log("Fade in");
+        //   }
+
+        //if getting object at start not working we can move it to here
+
+    }
+
+    [PunRPC]
+    private void FadeOutAlphaWhite(float fadeSpeed)
+    {
+
+        /* if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
+         {*/
+        fadeOutWhite = true;
+        fadeInWhite = false;
+
+        fadeSpeedGlobal = fadeSpeed;
+        Debug.Log("Fade out");
+
+        // }
+
+        //if getting object at start not working we can move it to here
+
+    }
+
+
     public void FadeOutButton(float fadeSpeed)
     {
         fadeOut = true;
@@ -77,12 +126,29 @@ public class Fader : MonoBehaviourPun
         photonView.RPC("FadeOutAlpha", RpcTarget.All, fadeSpeed);
     }
 
+    public void FadeOutWhiteButton(float fadeSpeed)
+    {
+        
+        fadeOutWhite = true;
+        fadeInWhite = false;
+        fadeSpeedGlobal = fadeSpeed;
+        photonView.RPC("FadeOutAlphaWhite", RpcTarget.All, fadeSpeed);
+    }
+
     public void FadeInButton(float fadeSpeed)
     {
         fadeIn = true;
         fadeOut = false;
         fadeSpeedGlobal = fadeSpeed;
         photonView.RPC("FadeInAlpha", RpcTarget.All, fadeSpeed);
+    }
+
+    public void FadeInWhiteButton(float fadeSpeed)
+    {
+        fadeInWhite = true;
+        fadeOutWhite = false;
+        fadeSpeedGlobal = fadeSpeed;
+        photonView.RPC("FadeInAlphaWhite", RpcTarget.All, fadeSpeed);
     }
 
 
@@ -101,6 +167,13 @@ public class Fader : MonoBehaviourPun
         {
            
             ChangeAlphaCoroutine(1f);
+
+        }
+
+        if(fadeOutWhite)
+        {
+            ChangeAlphaCoroutine(0f);
+
 
         }
     }
