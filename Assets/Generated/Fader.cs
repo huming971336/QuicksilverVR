@@ -9,9 +9,12 @@ public class Fader : MonoBehaviourPun
 
     private SpriteRenderer spriteRenderer;
     private SpriteRenderer spriteRendererWhite;
+    private SpriteRenderer spriteRendererCloud;
+
 
     public GameObject b;
     public GameObject c;
+    public GameObject radiation;
 
     private void Awake()
     {
@@ -23,6 +26,8 @@ public class Fader : MonoBehaviourPun
             spriteRenderer = b.GetComponent<SpriteRenderer>();
             c = GameObject.FindGameObjectWithTag("WhiteFader");
         spriteRendererWhite = c.GetComponent<SpriteRenderer>();
+        radiation = GameObject.FindGameObjectWithTag("PNGAnim");
+        spriteRendererCloud = radiation.GetComponent<SpriteRenderer>();
 
 
         // }
