@@ -118,7 +118,7 @@ Material:
     - _HAFTONESHAPES: 0
     - _HafltoneFadeDistance: 10
     - _HalfToneEnabled: 0
-    - _HalfToneIncludeReceivedShadow: 0
+    - _HalfToneIncludeReceivedShadow: 1
     - _HalftoneDiffuseOffest: 0
     - _HalftoneFadeToColor: 0
     - _HalftoneLightSizeFactor: 0
@@ -127,7 +127,7 @@ Material:
     - _HalftoneUseScreenSpaceUV: 0
     - _HatchingDensity: 1.28
     - _HatchingDiffuseOffset: 0.18
-    - _HatchingDrawStrength: 12.88
+    - _HatchingDrawStrength: 8.13
     - _HatchingEnabled: 1
     - _HatchingRotation: 0
     - _HatchingSmoothness: 0.2
@@ -162,7 +162,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HalftoneColor: {r: 1, g: 1, b: 1, a: 1}
-    - _HatchingColor: {r: 0, g: 0, b: 0, a: 1}
+    - _HatchingColor: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
     - _HatchingScale: {r: 20, g: 1, b: 0, a: 0}
     - _RimColor: {r: 0, g: 0.5871551, b: 2.670157, a: 1}
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 0}
