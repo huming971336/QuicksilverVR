@@ -4,16 +4,35 @@ using Photon.Pun;
 public class SoundPlayer : MonoBehaviourPun
 {
     [Tooltip("The audio clip to play")]
-    public AudioClip audioClip;
+    public AudioClip introClip;
+    public AudioClip chamberClip;
+
 
     [PunRPC]
-    private void PlaySound()
+    private void PlaySoundIntro()
     {
-        AudioSource.PlayClipAtPoint(audioClip, transform.position);
+        if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
+        {
+           AudioSource.PlayClipAtPoint(introClip, transform.position);
+        }
     }
 
-    public void PlaySoundOnAllClients()
+    [PunRPC]
+    private void PlaySoundChamber()
     {
-        photonView.RPC("PlaySound", RpcTarget.All);
+        if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
+        {
+            AudioSource.PlayClipAtPoint(chamberClip, transform.position);
+        }
+    }
+
+    public void PlaySoundIntroOnAllClients()
+    {
+        photonView.RPC("PlaySoundIntro", RpcTarget.All);
+    }
+
+    public void PlaySoundChamberOnAllClients()
+    {
+        photonView.RPC("PlaySoundChamber", RpcTarget.All);
     }
 }

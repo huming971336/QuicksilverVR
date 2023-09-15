@@ -62,9 +62,11 @@ MonoBehaviour:
   - FadeOutAlpha
   - FadeInAlpha
   - FadeClientOpacityOne
+  - PlaySound
   - FadeInAlphaWhite
   - FadeOutAlphaWhite
-  - PlaySound
+  - PlaySoundIntro
+  - PlaySoundChamber
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
