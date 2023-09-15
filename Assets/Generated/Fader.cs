@@ -42,10 +42,12 @@ public class Fader : MonoBehaviourPun
             fadeIn = false;
 
             fadeSpeedGlobal = fadeSpeed;
+            Debug.Log("Fade out");
+
         }
-    
+
         //if getting object at start not working we can move it to here
-        
+
     }
 
 
@@ -60,6 +62,7 @@ public class Fader : MonoBehaviourPun
             fadeOut = false;
 
             fadeSpeedGlobal = fadeSpeed;
+            Debug.Log("Fade in");
         }
 
         //if getting object at start not working we can move it to here
