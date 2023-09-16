@@ -11,6 +11,7 @@ TagManager:
   - BlackFader
   - PNGAnim
   - WhiteFader
+  - VideoPlayer
   layers:
   - Default
   - TransparentFX

@@ -13,7 +13,9 @@ public class SoundPlayer : MonoBehaviourPun
     {
         if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
         {
-           AudioSource.PlayClipAtPoint(introClip, transform.position);
+            AudioSource a= new AudioSource();
+            a.spatialBlend = 0;
+            a.PlayOneShot(introClip, 1.5f);
         }
     }
 
@@ -22,7 +24,10 @@ public class SoundPlayer : MonoBehaviourPun
     {
         if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
         {
-            AudioSource.PlayClipAtPoint(chamberClip, transform.position);
+
+            AudioSource a = new AudioSource();
+            a.spatialBlend = 0;
+            a.PlayOneShot(chamberClip, 1.5f);
         }
     }
 

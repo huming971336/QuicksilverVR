@@ -10,8 +10,21 @@ public class Fader : MonoBehaviourPun
     private SpriteRenderer spriteRenderer;
     private SpriteRenderer spriteRendererWhite;
 
+    //fades white black
     public GameObject b;
     public GameObject c;
+    bool fadeOut = false;
+    bool fadeIn = false;
+
+    bool fadeOutWhite = false;
+    bool fadeInWhite = false;
+    float fadeSpeedGlobal;
+
+    public GameObject radiation;
+    private SpriteRenderer spriteRendererRadiation;
+    bool fadeOutRadiation = false;
+    bool fadeInRadiation = false;
+
 
     private void Awake()
     {
@@ -23,16 +36,13 @@ public class Fader : MonoBehaviourPun
             spriteRenderer = b.GetComponent<SpriteRenderer>();
             c = GameObject.FindGameObjectWithTag("WhiteFader");
         spriteRendererWhite = c.GetComponent<SpriteRenderer>();
+        radiation = GameObject.FindGameObjectWithTag("PNGAnim");
+        spriteRendererRadiation = radiation.GetComponent<SpriteRenderer>();
 
 
         // }
     }
-    bool fadeOut = false;
-    bool fadeIn = false;
 
-    bool fadeOutWhite = false;
-    bool fadeInWhite = false;
-    float fadeSpeedGlobal;
 
 
     private void Start()
@@ -41,9 +51,54 @@ public class Fader : MonoBehaviourPun
         fadeIn = false;
         fadeOutWhite = false;
        fadeInWhite = false;
-
+        fadeOutRadiation = false;
+        fadeInRadiation = false;
     }
 
+
+    private void FixedUpdate()
+    {
+        if (fadeOut)
+        {
+
+            ChangeAlphaCoroutine(0f);
+
+        }
+
+        if (fadeIn)
+        {
+
+            ChangeAlphaCoroutine(1f);
+
+        }
+
+        if (fadeOutWhite)
+        {
+            ChangeAlphaCoroutine(0f);
+
+
+        }
+
+        if (fadeInWhite)
+        {
+            ChangeAlphaCoroutine(1f);
+
+
+        }
+
+        if (fadeInRadiation)
+        {
+            ChangeAlphaRadiation(1f);
+
+        }
+
+        if (fadeOutRadiation)
+        {
+            ChangeAlphaRadiation(0f);
+
+
+        }
+    }
     [PunRPC]
     private void FadeOutAlpha(float fadeSpeed)
     {
@@ -152,42 +207,99 @@ public class Fader : MonoBehaviourPun
     }
 
 
-
-
-    private void FixedUpdate()
+    public void FadeInRadiatonButton(float fadeSpeed)
     {
-        if(fadeOut)
-        {
-            
-            ChangeAlphaCoroutine(0f);
+        fadeInRadiation = true;
+        fadeOutRadiation = false;
+        fadeSpeedGlobal = fadeSpeed;
+        photonView.RPC("FadeInRadiation", RpcTarget.All, fadeSpeed);
+    }
+    public void FadeOutRadiationButton(float fadeSpeed)
+    {
 
-        }
-        
-        if(fadeIn)
-        {
-           
-            ChangeAlphaCoroutine(1f);
-
-        }
-
-        if(fadeOutWhite)
-        {
-            ChangeAlphaCoroutine(0f);
-
-
-        }
-
-        if (fadeInWhite)
-        {
-            ChangeAlphaCoroutine(1f);
-
-
-        }
+        fadeInRadiation = false;
+        fadeOutRadiation = true;
+        fadeSpeedGlobal = fadeSpeed;
+        photonView.RPC("FadeOutRadiation", RpcTarget.All, fadeSpeed);
     }
 
 
-    
-    private void ChangeAlphaCoroutine(float targetAlpha)
+    [PunRPC]
+    private void FadeOutRadiation(float fadeSpeed)
+    {
+
+        /* if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
+         {*/
+
+        fadeInRadiation = false;
+        fadeOutRadiation = true;
+        fadeSpeedGlobal = fadeSpeed;
+        Debug.Log("Fade out");
+
+        // }
+
+        //if getting object at start not working we can move it to here
+
+    }
+    [PunRPC]
+
+    private void FadeInRadiation(float fadeSpeed)
+    {
+
+        /*   if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
+           {*/
+        fadeInRadiation = true;
+        fadeOutRadiation = false;
+
+        fadeSpeedGlobal = fadeSpeed;
+        Debug.Log("Fade in");
+        //   }
+
+        //if getting object at start not working we can move it to here
+
+    }
+    private void ChangeAlphaRadiation(float targetAlpha)
+    {
+
+        if (fadeOutRadiation)
+        {
+
+            if (spriteRendererRadiation.color.a >= 0f)
+            {
+                float currentAlpha = spriteRendererRadiation.color.a;
+                currentAlpha = Mathf.Lerp(currentAlpha, targetAlpha, fadeSpeedGlobal * Time.deltaTime);
+                spriteRendererRadiation.color = new Color(spriteRendererRadiation.color.r, spriteRendererRadiation.color.g, spriteRendererRadiation.color.b, currentAlpha);
+
+
+            }
+            if (spriteRendererRadiation.color.a == 0f)
+
+            {
+                fadeOutRadiation = false;
+            }
+        }
+
+        if (fadeInRadiation)
+        {
+            if (spriteRendererRadiation.color.a <= 1f)
+            {
+                float currentAlpha = spriteRendererRadiation.color.a;
+                currentAlpha = Mathf.Lerp(currentAlpha, targetAlpha, fadeSpeedGlobal * Time.deltaTime);
+                spriteRendererRadiation.color = new Color(spriteRendererRadiation.color.r, spriteRendererRadiation.color.g, spriteRendererRadiation.color.b, currentAlpha);
+
+            }
+            if (spriteRendererRadiation.color.a == 1f)
+            {
+                fadeInRadiation = false;
+            }
+        }
+
+    }
+
+
+
+
+        private void ChangeAlphaCoroutine(float targetAlpha)
     {
 
         if(fadeOut)
