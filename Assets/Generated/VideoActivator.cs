@@ -5,14 +5,13 @@ public class VideoActivator : MonoBehaviourPun
 {
     [SerializeField]
     [Tooltip("The game object to activate")]
-    private GameObject[] objectsToActivate;
+    private GameObject[] objectsToActivate = new GameObject[3];
 
     int videoCount = 3;
     private void Start()
     {
-        videoCount = 3;
-        objectsToActivate = new GameObject[3];
-            objectsToActivate = GameObject.FindGameObjectsWithTag("VideoPlayer");
+       // objectsToActivate = new GameObject[3];
+      //  objectsToActivate = GameObject.FindGameObjectsWithTag("VideoPlayer");
         
     }
     public void ActivateObject()
