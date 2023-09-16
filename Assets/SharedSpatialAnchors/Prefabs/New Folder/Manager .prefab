@@ -50,6 +50,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectTag: scenes
+  objectsToActivate:
+  - {fileID: 4583704306377819937, guid: fff547e970c4a734b808a29f26a94a89, type: 3}
+  - {fileID: 73489013384857004, guid: 688ef63368468c14f91267e6a5e93e98, type: 3}
+  - {fileID: 5376131428979236207, guid: 59f8bbab7377330488e745fae01b8723, type: 3}
+  - {fileID: 7847758724948179302, guid: 0195cf7abf8937d44b1e82dc041fb0a4, type: 3}
+  - {fileID: 2848455908169944506, guid: 04247e391a35b7b41a9469b74db1a011, type: 3}
+  - {fileID: 6264610379430059284, guid: eded09134fe351945a6a7a97b46e099a, type: 3}
+  - {fileID: 4910563471968414299, guid: fc1b43b1b4ea06148ac48d0ac08c32ae, type: 3}
+  - {fileID: 3025207586716786940, guid: 8efaa802a008161409ab596a80d3b1d0, type: 3}
+  - {fileID: 9127574415485238369, guid: 8167bb15375ec09459d451fdb6e4e0c9, type: 3}
+  objectsToActivatethorns:
+  - {fileID: 1463992922883136258, guid: f6640d4ed5fca5d42a9eb8ed9d05d5e7, type: 3}
+  - {fileID: 6647859913231021839, guid: efd4386a1cefaa1478e23e59d1b312d7, type: 3}
+  - {fileID: 5336514086098169601, guid: 79a15534730f482418727754f2d431d0, type: 3}
+  - {fileID: 6867010040786652441, guid: cd73a73669bd4504189f2a395a1340da, type: 3}
+  - {fileID: 6000841809052702402, guid: a29ebaac26759a843a222afdfd87249c, type: 3}
+  - {fileID: 7729074434355668715, guid: 7785196bea589824fbde484d59fde86e, type: 3}
+  - {fileID: 3996260566041378739, guid: 7605a97360e93364193524e137854106, type: 3}
+  - {fileID: 7295370283476684873, guid: a79d583a4b009fc40b318801c0c31d12, type: 3}
+  activationDelay: 5
 --- !u!114 &20461396847269788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08393c4fa79cbc24992bbfb6d963f596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skyboxMaterial: {fileID: 2100000, guid: 2b5e2dcd94260594591020ace15752fb, type: 2}
+  skyboxSphere: {fileID: 0}
 --- !u!114 &6903703149599886369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d92655c875977448d2b4fc0b9ff50c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToActivate: {fileID: 0}
+  objectsToActivate: []
 --- !u!114 &5481899951897821461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,5 +147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2232376aa0a8bcf41926fce29d8300fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeSpeed: 1
   b: {fileID: 0}
+  c: {fileID: 0}
+  radiation: {fileID: 0}
