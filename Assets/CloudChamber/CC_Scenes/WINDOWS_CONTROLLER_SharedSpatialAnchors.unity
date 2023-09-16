@@ -15001,7 +15001,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 895480596963479797, guid: 3b9dc0e9b706d014b92571d8897961d7, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4813822067938622402, guid: 3b9dc0e9b706d014b92571d8897961d7, type: 3}
       propertyPath: sceneViewId
@@ -15120,7 +15120,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 6207563397645487682}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002714591}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1d92655c875977448d2b4fc0b9ff50c, type: 3}
   m_Name: 
