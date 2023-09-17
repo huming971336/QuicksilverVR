@@ -12,6 +12,7 @@ TagManager:
   - PNGAnim
   - WhiteFader
   - VideoPlayer
+  - TheEndVideo
   layers:
   - Default
   - TransparentFX

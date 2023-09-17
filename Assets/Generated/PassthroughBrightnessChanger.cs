@@ -137,7 +137,7 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
    
     public void FadeClientOpacityOneButton(float passthroughChangeSpeed)
     {
-        startOpacity = passthroughStyler._passthroughLayer.textureOpacity;
+        startOpacity = passthroughStyler._savedOpacity;
         passthroughChangeSpeedGlobal = passthroughChangeSpeed;
         passthroughOpen = true;
         passthroughClose = false;
@@ -146,7 +146,7 @@ public class PassthroughBrightnessChanger : MonoBehaviourPunCallbacks
     }
     public void FadeClientOpacityZeroButton(float passthroughChangeSpeed)
     {
-        startOpacity = passthroughStyler._passthroughLayer.textureOpacity;
+        startOpacity = passthroughStyler._savedOpacity;
         passthroughChangeSpeedGlobal = passthroughChangeSpeed;
         passthroughOpen = false;
         passthroughClose = true;

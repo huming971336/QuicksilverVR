@@ -13,7 +13,7 @@ public class SoundPlayer : MonoBehaviourPun
     {
         if (PhotonNetwork.LocalPlayer.NickName[0] + "" != "T")
         {
-            AudioSource a= new AudioSource();
+            AudioSource a = new AudioSource();
             a.spatialBlend = 0;
             a.PlayOneShot(introClip, 1.5f);
         }

@@ -26,6 +26,9 @@ public class Fader : MonoBehaviourPun
     bool fadeInRadiation = false;
 
 
+
+
+
     private void Awake()
     {
       /*  PhotonView a = gameObject.AddComponent<PhotonView>();
@@ -74,14 +77,14 @@ public class Fader : MonoBehaviourPun
 
         if (fadeOutWhite)
         {
-            ChangeAlphaCoroutine(0f);
+            ChangeAlphaWhite(0f);
 
 
         }
 
         if (fadeInWhite)
         {
-            ChangeAlphaCoroutine(1f);
+            ChangeAlphaWhite(1f);
 
 
         }
@@ -297,7 +300,44 @@ public class Fader : MonoBehaviourPun
     }
 
 
+        private void ChangeAlphaWhite(float targetAlpha)
+         {
 
+        if (fadeInWhite)
+        {
+            if (spriteRendererWhite.color.a <= 1f)
+            {
+                float currentAlpha = spriteRendererWhite.color.a;
+                currentAlpha = Mathf.Lerp(currentAlpha, targetAlpha, fadeSpeedGlobal * Time.deltaTime);
+                spriteRendererWhite.color = new Color(spriteRendererWhite.color.r, spriteRendererWhite.color.g, spriteRendererWhite.color.b, currentAlpha);
+
+            }
+            if (spriteRendererWhite.color.a == 1f)
+            {
+                fadeInWhite = false;
+            }
+        }
+
+        if (fadeOutWhite)
+        {
+
+            if (spriteRendererWhite.color.a >= 0f)
+            {
+                float currentAlpha = spriteRenderer.color.a;
+                currentAlpha = Mathf.Lerp(currentAlpha, targetAlpha, fadeSpeedGlobal * Time.deltaTime);
+                spriteRendererWhite.color = new Color(spriteRendererWhite.color.r, spriteRendererWhite.color.g, spriteRendererWhite.color.b, currentAlpha);
+
+
+            }
+            if (spriteRendererWhite.color.a == 0f)
+
+            {
+                fadeOutWhite = false;
+            }
+        }
+
+
+    }
 
         private void ChangeAlphaCoroutine(float targetAlpha)
     {
@@ -336,38 +376,6 @@ public class Fader : MonoBehaviourPun
         }
 
 
-        if(fadeInWhite)
-        {
-            if (spriteRendererWhite.color.a <= 1f)
-            {
-                float currentAlpha = spriteRendererWhite.color.a;
-                currentAlpha = Mathf.Lerp(currentAlpha, targetAlpha, fadeSpeedGlobal * Time.deltaTime);
-                spriteRendererWhite.color = new Color(spriteRendererWhite.color.r, spriteRendererWhite.color.g, spriteRendererWhite.color.b, currentAlpha);
-
-            }
-            if (spriteRendererWhite.color.a == 1f)
-            {
-                fadeInWhite = false;
-            }
-        }
-
-        if (fadeOutWhite)
-        {
-
-            if (spriteRendererWhite.color.a >= 0f)
-            {
-                float currentAlpha = spriteRenderer.color.a;
-                currentAlpha = Mathf.Lerp(currentAlpha, targetAlpha, fadeSpeedGlobal * Time.deltaTime);
-                spriteRendererWhite.color = new Color(spriteRendererWhite.color.r, spriteRendererWhite.color.g, spriteRendererWhite.color.b, currentAlpha);
-
-
-            }
-            if (spriteRendererWhite.color.a == 0f)
-
-            {
-                fadeOutWhite = false;
-            }
-        }
 
 
     }

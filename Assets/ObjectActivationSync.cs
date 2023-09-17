@@ -72,7 +72,7 @@ public class ObjectActivationSync : MonoBehaviour
         
         while (currentIndexThorn < objectsToActivatethorns.Length)
         {
-            GameObject currentObject = objectsToActivatethorns[currentIndex];
+            GameObject currentObject = objectsToActivatethorns[currentIndexThorn];
             
             // Check if the object is not null and has a PhotonView.
             if (currentObject != null && currentObject.GetComponent<PhotonView>() != null)
@@ -81,7 +81,7 @@ public class ObjectActivationSync : MonoBehaviour
                 PhotonNetwork.Instantiate(currentObject.name, currentObject.transform.position, currentObject.transform.rotation);
             }
 
-            currentIndex++;
+            currentIndexThorn++;
 
             // Wait for the next activation delay.
             yield return new WaitForSeconds(activationDelay);
