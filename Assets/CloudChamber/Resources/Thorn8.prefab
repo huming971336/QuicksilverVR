@@ -138,4 +138,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetScale: {x: 37.31185, y: 37.31184, z: 26}
-  duration: 10
+  duration: 8
