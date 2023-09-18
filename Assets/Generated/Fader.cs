@@ -10,15 +10,18 @@ public class Fader : MonoBehaviourPun
     private SpriteRenderer spriteRenderer;
     private SpriteRenderer spriteRendererWhite;
 
+    float fadeSpeedGlobal;
+
     //fades white black
     public GameObject b;
-    public GameObject c;
+    
     bool fadeOut = false;
     bool fadeIn = false;
 
+
+    public GameObject c;
     bool fadeOutWhite = false;
     bool fadeInWhite = false;
-    float fadeSpeedGlobal;
 
     public GameObject radiation;
     private SpriteRenderer spriteRendererRadiation;
@@ -65,6 +68,7 @@ public class Fader : MonoBehaviourPun
         {
 
             ChangeAlphaCoroutine(0f);
+            Debug.Log("going down black");
 
         }
 
@@ -72,12 +76,16 @@ public class Fader : MonoBehaviourPun
         {
 
             ChangeAlphaCoroutine(1f);
+            Debug.Log("going up black");
+
 
         }
 
         if (fadeOutWhite)
         {
             ChangeAlphaWhite(0f);
+            Debug.Log("going down white");
+
 
 
         }
@@ -85,6 +93,8 @@ public class Fader : MonoBehaviourPun
         if (fadeInWhite)
         {
             ChangeAlphaWhite(1f);
+
+            Debug.Log("going up white");
 
 
         }
@@ -184,14 +194,7 @@ public class Fader : MonoBehaviourPun
         photonView.RPC("FadeOutAlpha", RpcTarget.All, fadeSpeed);
     }
 
-    public void FadeOutWhiteButton(float fadeSpeed)
-    {
-        
-        fadeOutWhite = true;
-        fadeInWhite = false;
-        fadeSpeedGlobal = fadeSpeed;
-        photonView.RPC("FadeOutAlphaWhite", RpcTarget.All, fadeSpeed);
-    }
+    
 
     public void FadeInButton(float fadeSpeed)
     {
@@ -203,10 +206,20 @@ public class Fader : MonoBehaviourPun
 
     public void FadeInWhiteButton(float fadeSpeed)
     {
+     
         fadeInWhite = true;
         fadeOutWhite = false;
         fadeSpeedGlobal = fadeSpeed;
         photonView.RPC("FadeInAlphaWhite", RpcTarget.All, fadeSpeed);
+    }
+
+    public void FadeOutWhiteButton(float fadeSpeed)
+    {
+
+        fadeOutWhite = true;
+        fadeInWhite = false;
+        fadeSpeedGlobal = fadeSpeed;
+        photonView.RPC("FadeOutAlphaWhite", RpcTarget.All, fadeSpeed);
     }
 
 
@@ -267,7 +280,7 @@ public class Fader : MonoBehaviourPun
         if (fadeOutRadiation)
         {
 
-            if (spriteRendererRadiation.color.a >= 0f)
+            if (spriteRendererRadiation.color.a > 0.01f)
             {
                 float currentAlpha = spriteRendererRadiation.color.a;
                 currentAlpha = Mathf.Lerp(currentAlpha, targetAlpha, fadeSpeedGlobal * Time.deltaTime);
@@ -275,25 +288,29 @@ public class Fader : MonoBehaviourPun
 
 
             }
-            if (spriteRendererRadiation.color.a == 0f)
+            if (spriteRendererRadiation.color.a <= 0.01f)
 
             {
+                spriteRendererRadiation.color = new Color(spriteRendererRadiation.color.r, spriteRendererRadiation.color.g, spriteRendererRadiation.color.b, 0f);
                 fadeOutRadiation = false;
             }
         }
 
         if (fadeInRadiation)
         {
-            if (spriteRendererRadiation.color.a <= 1f)
+            if (spriteRendererRadiation.color.a <= 0.99f)
             {
                 float currentAlpha = spriteRendererRadiation.color.a;
                 currentAlpha = Mathf.Lerp(currentAlpha, targetAlpha, fadeSpeedGlobal * Time.deltaTime);
                 spriteRendererRadiation.color = new Color(spriteRendererRadiation.color.r, spriteRendererRadiation.color.g, spriteRendererRadiation.color.b, currentAlpha);
 
             }
-            if (spriteRendererRadiation.color.a == 1f)
+            if (spriteRendererRadiation.color.a > 0.99f)
             {
+                spriteRendererRadiation.color = new Color(spriteRendererRadiation.color.r, spriteRendererRadiation.color.g, spriteRendererRadiation.color.b, 1f);
+
                 fadeInRadiation = false;
+
             }
         }
 
@@ -302,39 +319,46 @@ public class Fader : MonoBehaviourPun
 
         private void ChangeAlphaWhite(float targetAlpha)
          {
+        if (fadeOutWhite)
+        {
+
+            if (spriteRendererWhite.color.a >= 0.01f)
+            {
+                float currentAlpha = spriteRendererWhite.color.a;
+                currentAlpha = Mathf.Lerp(currentAlpha, targetAlpha, fadeSpeedGlobal * Time.deltaTime);
+                spriteRendererWhite.color = new Color(spriteRendererWhite.color.r, spriteRendererWhite.color.g, spriteRendererWhite.color.b, currentAlpha);
+
+
+            }
+            if (spriteRendererWhite.color.a < 0.01f)
+
+            {
+                spriteRendererWhite.color = new Color(spriteRendererWhite.color.r, spriteRendererWhite.color.g, spriteRendererWhite.color.b, 0f);
+
+                fadeOutWhite = false;
+
+            }
+        }
 
         if (fadeInWhite)
         {
-            if (spriteRendererWhite.color.a <= 1f)
+            if (spriteRendererWhite.color.a < 0.99f)
             {
                 float currentAlpha = spriteRendererWhite.color.a;
                 currentAlpha = Mathf.Lerp(currentAlpha, targetAlpha, fadeSpeedGlobal * Time.deltaTime);
                 spriteRendererWhite.color = new Color(spriteRendererWhite.color.r, spriteRendererWhite.color.g, spriteRendererWhite.color.b, currentAlpha);
 
             }
-            if (spriteRendererWhite.color.a == 1f)
+            if (spriteRendererWhite.color.a >= 0.99f)
             {
+                spriteRendererWhite.color = new Color(spriteRendererWhite.color.r, spriteRendererWhite.color.g, spriteRendererWhite.color.b, 1f);
+
                 fadeInWhite = false;
+
             }
         }
 
-        if (fadeOutWhite)
-        {
-
-            if (spriteRendererWhite.color.a >= 0f)
-            {
-                float currentAlpha = spriteRenderer.color.a;
-                currentAlpha = Mathf.Lerp(currentAlpha, targetAlpha, fadeSpeedGlobal * Time.deltaTime);
-                spriteRendererWhite.color = new Color(spriteRendererWhite.color.r, spriteRendererWhite.color.g, spriteRendererWhite.color.b, currentAlpha);
-
-
-            }
-            if (spriteRendererWhite.color.a == 0f)
-
-            {
-                fadeOutWhite = false;
-            }
-        }
+       
 
 
     }
@@ -345,7 +369,7 @@ public class Fader : MonoBehaviourPun
         if(fadeOut)
         {
 
-            if (spriteRenderer.color.a >= 0f)
+            if (spriteRenderer.color.a >= 0.01f)
             {
                 float currentAlpha = spriteRenderer.color.a;
                 currentAlpha = Mathf.Lerp(currentAlpha, targetAlpha, fadeSpeedGlobal * Time.deltaTime);
@@ -353,25 +377,31 @@ public class Fader : MonoBehaviourPun
                 
 
             }
-            if(spriteRenderer.color.a == 0f)
+            if(spriteRenderer.color.a < 0.01f)
             
             {
+                spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0f);
+
                 fadeOut = false;
+
             }
         }
         
         if(fadeIn)
         {
-            if (spriteRenderer.color.a <= 1f)
+            if (spriteRenderer.color.a <= 0.99f)
             {
                 float currentAlpha = spriteRenderer.color.a;
                 currentAlpha = Mathf.Lerp(currentAlpha, targetAlpha, fadeSpeedGlobal * Time.deltaTime);
                 spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, currentAlpha);
 
             }
-            if (spriteRenderer.color.a == 1f)
+            if (spriteRenderer.color.a > 0.99f)
             {
+                spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1f);
+
                 fadeIn = false;
+
             }
         }
 

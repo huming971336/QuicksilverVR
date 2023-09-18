@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 2169313431515214262}
   m_Layer: 3
   m_Name: TargetSpawnEyes
-  m_TagString: Untagged
+  m_TagString: scenes
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

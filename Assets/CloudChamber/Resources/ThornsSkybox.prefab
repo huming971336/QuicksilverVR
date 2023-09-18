@@ -80,29 +80,33 @@ PrefabInstance:
       propertyPath: m_TagString
       value: scenes
       objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 555e694fb9081af489aa32723d4dd7e1, type: 3}
+      propertyPath: m_TagString
+      value: scenes
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 555e694fb9081af489aa32723d4dd7e1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 223765488379518571}
+      addedObject: {fileID: 2938}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 555e694fb9081af489aa32723d4dd7e1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1929223199750314853}
+      addedObject: {fileID: 2939}
     - targetCorrespondingSourceObject: {fileID: 8164078558771037576, guid: 555e694fb9081af489aa32723d4dd7e1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3717123276626033879}
+      addedObject: {fileID: 2940}
     - targetCorrespondingSourceObject: {fileID: 8164078558771037576, guid: 555e694fb9081af489aa32723d4dd7e1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4298867003057864781}
+      addedObject: {fileID: 2941}
   m_SourcePrefab: {fileID: 100100000, guid: 555e694fb9081af489aa32723d4dd7e1, type: 3}
 --- !u!1 &4563510768039332489 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 555e694fb9081af489aa32723d4dd7e1, type: 3}
   m_PrefabInstance: {fileID: 3717071735072929752}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &223765488379518571
+--- !u!114 &2938
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,11 +125,11 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 1929223199750314853}
+  - {fileID: 2939}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &1929223199750314853
+--- !u!114 &2939
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,14 +143,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
+  m_SynchronizeScale: 1
   m_UseLocal: 1
 --- !u!1 &4816902430107431504 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: 555e694fb9081af489aa32723d4dd7e1, type: 3}
   m_PrefabInstance: {fileID: 3717071735072929752}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3717123276626033879
+--- !u!114 &2940
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,11 +169,11 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 4298867003057864781}
+  - {fileID: 2941}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &4298867003057864781
+--- !u!114 &2941
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

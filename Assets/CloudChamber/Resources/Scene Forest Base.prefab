@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1910588571367237939}
   m_Layer: 0
   m_Name: Scene Forest Base
-  m_TagString: Untagged
+  m_TagString: scenes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
