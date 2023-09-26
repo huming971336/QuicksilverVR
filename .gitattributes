@@ -1,0 +1,4 @@
+Assets/CloudChamber/CC_3D[[:space:]]Objects/Inventing[[:space:]]Hope/InventingHopeObjects.fbx filter=lfs diff=lfs merge=lfs -text
+Assets/CloudChamber/CC_3D[[:space:]]Objects/Inventing[[:space:]]Hope/rope.fbx filter=lfs diff=lfs merge=lfs -text
+Assets/CloudChamber/CC_3D[[:space:]]Objects/chapel[[:space:]]Concrete/ChapelConcrete.fbx filter=lfs diff=lfs merge=lfs -text
+*.MOV filter=lfs diff=lfs merge=lfs -text
